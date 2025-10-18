@@ -732,3 +732,149 @@ body {
     font-size: 24px;
     cursor: pointer;
 }
+
+/* تصميم متجاوب للهواتف */
+@media (max-width: 768px) {
+
+    /* إخفاء القائمة الجانبية الأصلية */
+    .sidebar {
+        display: none;
+    }
+
+    /* زر القائمة الهامبرجر */
+    .mobile-menu-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #004aad;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 18px;
+        z-index: 1001;
+        cursor: pointer;
+    }
+
+    /* القائمة الجانبية للموبايل */
+    .mobile-sidebar {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background: #004aad;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+        padding-top: 60px;
+    }
+
+    .mobile-sidebar.active {
+        right: 0;
+    }
+
+    .mobile-sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-sidebar ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-sidebar ul li a {
+        display: block;
+        padding: 15px 20px;
+        color: white;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+
+    .mobile-sidebar ul li a:hover,
+    .mobile-sidebar ul li a.active {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* تعديل المحتوى الرئيسي */
+    .main-content {
+        margin-right: 0;
+        padding: 80px 15px 20px;
+    }
+
+    /* تعديل الهيدر */
+    .top-bar .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .top-bar .logo {
+        margin-bottom: 10px;
+    }
+
+    .top-bar .search-box {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .top-bar .user-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* تعديل قسم الإحصائيات */
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    /* تعديل قسم الأقسام */
+    .departments-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* زر إغلاق القائمة */
+    .close-mobile-menu {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* طبقة التعتيم */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+    }
+
+    .overlay.active {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-section {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-banner h2 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-banner p {
+        font-size: 1rem;
+    }
+}
