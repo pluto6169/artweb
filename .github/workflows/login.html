@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - كلية الآداب</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h2 {
+            color: #004aad;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #004aad;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .login-btn:hover {
+            background: #003580;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .login-options a {
+            color: #004aad;
+            text-decoration: none;
+        }
+
+        .login-options a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            background: #ffebee;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            display: none;
+        }
+
+        .demo-accounts {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .demo-accounts h4 {
+            margin: 0 0 10px 0;
+            color: #004aad;
+        }
+
+        .account-info {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-bar">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/33.png" alt="شعار">
+
+                <h1>كلية الآداب - جامعة القاهرة</h1>
+            </div>
+            <div class="search-box">
+                <input type="search" placeholder="البحث في كافة البيانات">
+            </div>
+            <div class="user-info">
+                <a href="index.html" class="back-btn">العودة للرئيسية</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content"
+        style="min-height: calc(100vh - 120px); display: flex; align-items: center; justify-content: center;">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>تسجيل الدخول</h2>
+                <p>أدخل بياناتك للوصول إلى حسابك</p>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+
+            <form id="loginForm" onsubmit="validateLogin(event)">
+                <div class="form-group">
+                    <label for="username">اسم المستخدم:</label>
+                    <input type="text" id="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">كلمة المرور:</label>
+                    <input type="password" id="password" required>
+                </div>
+
+                <button type="submit" class="login-btn">تسجيل الدخول</button>
+
+                <div class="login-options">
+                    <a href="#">نسيت كلمة المرور؟</a>
+                    <a href="admission.html">إنشاء حساب جديد</a>
+                </div>
+            </form>
+
+            <div class="demo-accounts">
+                <h4>حسابات تجريبية:</h4>
+                <div class="account-info"><strong>أستاذ:</strong> admin / admin123</div>
+                <div class="account-info"><strong>طالب:</strong> student / student123</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/user-management.js"></script>
+    <script>
+        // التحقق من وجود مستخدم مسجل بالفعل
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentUser = getCurrentUser();
+            if (currentUser) {
+                // إذا كان المستخدم مسجل بالفعل، يتم توجيهه للصفحة الرئيسية
+                window.location.href = 'index.html';
+            }
+        });
+
+        function validateLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+
+            // إخفاء رسالة الخطأ
+            errorMessage.style.display = 'none';
+
+            // التحقق من الحقول الفارغة
+            if (username === '' || password === '') {
+                showError('الرجاء ملء جميع الحقول');
+                return false;
+            }
+
+            // محاولة تسجيل الدخول
+            if (login(username, password)) {
+                // إظهار رسالة نجاح
+                const user = getCurrentUser();
+                alert(`مرحباً ${user.name}! تم تسجيل الدخول بنجاح.`);
+
+                // التوجيه إلى الصفحة الرئيسية
+                window.location.href = 'index.html';
+            } else {
+                showError('اسم المستخدم أو كلمة المرور غير صحيحة');
+            }
+
+            return false;
+        }
+
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+    </script>
+    <script src="./assets/js/header-loader.js"></script>
+
+</body>
+
+</html>

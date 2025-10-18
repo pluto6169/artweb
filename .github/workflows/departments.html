@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأقسام العلمية - كلية الآداب</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header class="top-bar">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/33.png" alt="شعار">
+
+                <h1>كلية الآداب - جامعة القاهرة</h1>
+            </div>
+            <div class="search-box">
+                <input type="search" placeholder="البحث في كافة البيانات">
+            </div>
+            <div class="user-info">
+                <button class="login-btn">تسجيل الدخول</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="news.html">أخبار الكلية</a></li>
+            <li><a href="events.html">الفعاليات والمؤتمرات</a></li>
+            <li><a href="statistics.html">إحصائيات الكلية</a></li>
+            <li><a href="research.html">النشاط العلمي</a></li>
+            <li><a href="about.html">عن الكلية</a></li>
+            <li><a href="departments.html" class="active">الأقسام العلمية</a></li>
+            <li><a href="students.html">خدمات الطلاب</a></li>
+            <li><a href="postgraduates.html">الدراسات العليا</a></li>
+            <li><a href="admission.html">القبول والتسجيل</a></li>
+            <li><a href="community.html">خدمة المجتمع</a></li>
+            <li><a href="contact.html">اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="welcome-banner">
+            <h2>الأقسام العلمية</h2>
+            <p>تعرف على جميع الأقسام العلمية بالكلية</p>
+            <button onclick="sortDepartments()" style="margin-top: 15px;" class="read-more-btn">ترتيب أبجديًا</button>
+        </section>
+
+        <section class="departments-section">
+            <div class="departments-grid" id="departmentsList">
+                <div class="department-card" data-name="قسم اللغة العربية">
+                    <div class="card-content">
+                        <h3>قسم اللغة العربية</h3>
+                        <p>يهتم بدراسة اللغة العربية وآدابها والنقد والبلاغة.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم اللغات الشرقية">
+                    <div class="card-content">
+                        <h3>قسم اللغات الشرقية</h3>
+                        <p>يشمل شعب اللغة العبرية، الفارسية، والتركية، ويركز على اللغات والثقافات الشرقية.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم اللغة الإنجليزية">
+                    <div class="card-content">
+                        <h3>قسم اللغة الإنجليزية</h3>
+                        <p>يدرس اللغة الإنجليزية وآدابها والنقد الأدبي والترجمة.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم اللغة الفرنسية">
+                    <div class="card-content">
+                        <h3>قسم اللغة الفرنسية</h3>
+                        <p>يركز على اللغة الفرنسية وآدابها والثقافة الفرانكفونية.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم اللغة الألمانية">
+                    <div class="card-content">
+                        <h3>قسم اللغة الألمانية</h3>
+                        <p>يدرس اللغة الألمانية وآدابها والترجمة والثقافة الألمانية.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم الدراسات اليونانية واللاتينية">
+                    <div class="card-content">
+                        <h3>قسم الدراسات اليونانية واللاتينية</h3>
+                        <p>يعنى بدراسة اللغات الكلاسيكية وآداب الحضارات القديمة.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم اللغة اليابانية">
+                    <div class="card-content">
+                        <h3>قسم اللغة اليابانية</h3>
+                        <p>يدرس اللغة اليابانية والثقافة اليابانية الحديثة والتقليدية.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم اللغة الصينية">
+                    <div class="card-content">
+                        <h3>قسم اللغة الصينية</h3>
+                        <p>يركز على اللغة الصينية وآدابها والتواصل الثقافي مع الصين.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم التاريخ">
+                    <div class="card-content">
+                        <h3>قسم التاريخ</h3>
+                        <p>يختص بدراسة التاريخ الإسلامي، القديم، والحديث والمعاصر.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم الجغرافيا">
+                    <div class="card-content">
+                        <h3>قسم الجغرافيا</h3>
+                        <p>يهتم بدراسة الجغرافيا الطبيعية والبشرية ونظم المعلومات الجغرافية.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم الفلسفة">
+                    <div class="card-content">
+                        <h3>قسم الفلسفة</h3>
+                        <p>يدرس الفلسفة القديمة والحديثة والمنطق ونظريات المعرفة.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم علم النفس">
+                    <div class="card-content">
+                        <h3>قسم علم النفس</h3>
+                        <p>يركز على دراسة السلوك الإنساني، التحليل النفسي، والإرشاد.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم علم الاجتماع">
+                    <div class="card-content">
+                        <h3>قسم علم الاجتماع</h3>
+                        <p>يعنى بدراسة المجتمع، التغير الاجتماعي، والأنثروبولوجيا.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم المكتبات والمعلومات">
+                    <div class="card-content">
+                        <h3>قسم المكتبات والمعلومات</h3>
+                        <p>يدرس تنظيم المعلومات، الأرشفة الرقمية، وإدارة المعرفة.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم الدراسات السكانية">
+                    <div class="card-content">
+                        <h3>قسم الدراسات السكانية</h3>
+                        <p>يركز على التحليل الديموغرافي، والهجرة، والتنمية السكانية.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم الآثار">
+                    <div class="card-content">
+                        <h3>قسم الآثار</h3>
+                        <p>يعنى بدراسة الآثار المصرية القديمة، الإسلامية، والقبطية.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card" data-name="قسم الإعلام">
+                    <div class="card-content">
+                        <h3>قسم الإعلام</h3>
+                        <p>يدرس الصحافة، العلاقات العامة، والإذاعة والتلفزيون.</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="js/sort-departments.js"></script>
+    <script src="js/user-management.js"></script>
+    <script src="./assets/js/header-loader.js"></script>
+
+
+</body>
+
+</html>

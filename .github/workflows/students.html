@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات الطلاب - كلية الآداب</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* أنماط نافذة التنبيه */
+        .custom-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 0;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            animation: modalopen 0.4s;
+        }
+
+        @keyframes modalopen {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: #004aad;
+            color: white;
+            padding: 15px 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+        }
+
+        .close-modal {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: #ccc;
+        }
+
+        .modal-body {
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .modal-footer {
+            padding: 15px 20px;
+            text-align: left;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-bar">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/33.png" alt="شعار">
+
+                <h1>كلية الآداب - جامعة القاهرة</h1>
+            </div>
+            <div class="search-box">
+                <input type="search" placeholder="البحث في كافة البيانات">
+            </div>
+            <div class="user-info">
+                <button class="login-btn">تسجيل الدخول</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="news.html">أخبار الكلية</a></li>
+            <li><a href="events.html">الفعاليات والمؤتمرات</a></li>
+            <li><a href="statistics.html">إحصائيات الكلية</a></li>
+            <li><a href="research.html">النشاط العلمي</a></li>
+            <li><a href="about.html">عن الكلية</a></li>
+            <li><a href="departments.html">الأقسام العلمية</a></li>
+            <li><a href="students.html" class="active">خدمات الطلاب</a></li>
+            <li><a href="postgraduates.html">الدراسات العليا</a></li>
+            <li><a href="admission.html">القبول والتسجيل</a></li>
+            <li><a href="community.html">خدمة المجتمع</a></li>
+            <li><a href="contact.html">اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="welcome-banner">
+            <h2>خدمات الطلاب</h2>
+            <p>جميع الخدمات الإلكترونية للطلاب</p>
+        </section>
+
+        <section class="departments-section">
+            <div class="departments-grid">
+                <div class="department-card">
+                    <div class="card-content">
+                        <h3>بيانات الطلاب</h3>
+                        <p>عرض وتحديث البيانات الشخصية</p>
+                        <button class="read-more-btn">الدخول</button>
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="card-content">
+                        <h3>تسجيل المقررات</h3>
+                        <p>التسجيل في المقررات الدراسية</p>
+                        <button class="read-more-btn">الدخول</button>
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="card-content">
+                        <h3>الجداول الدراسية</h3>
+                        <p>عرض الجدول الدراسي الخاص بك</p>
+                        <button class="read-more-btn" onclick="showTablesAlert()">عرض الجدول</button>
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="card-content">
+                        <h3>النتائج والدرجات</h3>
+                        <p>استعراض النتائج والدرجات</p>
+                        <button class="read-more-btn">الدخول</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- نافذة التنبيه -->
+        <div id="tablesAlertModal" class="custom-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>تنبيه</h3>
+                    <span class="close-modal" onclick="closeModal()">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>الجداول الدراسية سيتم فتحها قريباً!</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="read-more-btn" onclick="closeModal()">موافق</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // عرض نافذة التنبيه
+        function showTablesAlert() {
+            const modal = document.getElementById('tablesAlertModal');
+            modal.style.display = 'block';
+        }
+
+        // إغلاق نافذة التنبيه
+        function closeModal() {
+            const modal = document.getElementById('tablesAlertModal');
+            modal.style.display = 'none';
+        }
+
+        // إغلاق النافذة عند النقر خارجها
+        window.onclick = function (event) {
+            const modal = document.getElementById('tablesAlertModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script src="js/user-management.js"></script>
+    <script src="./assets/js/header-loader.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدراسات العليا - كلية الآداب</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header class="top-bar">
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/33.png" alt="شعار">
+
+                <h1>كلية الآداب - جامعة القاهرة</h1>
+            </div>
+            <div class="search-box">
+                <input type="search" placeholder="البحث في كافة البيانات">
+            </div>
+            <div class="user-info">
+                <button class="login-btn">تسجيل الدخول</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="news.html">أخبار الكلية</a></li>
+            <li><a href="events.html">الفعاليات والمؤتمرات</a></li>
+            <li><a href="statistics.html">إحصائيات الكلية</a></li>
+            <li><a href="research.html">النشاط العلمي</a></li>
+            <li><a href="about.html">عن الكلية</a></li>
+            <li><a href="departments.html">الأقسام العلمية</a></li>
+            <li><a href="students.html">خدمات الطلاب</a></li>
+            <li><a href="postgraduates.html" class="active">الدراسات العليا</a></li>
+            <li><a href="admission.html">القبول والتسجيل</a></li>
+            <li><a href="community.html">خدمة المجتمع</a></li>
+            <li><a href="contact.html">اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section class="welcome-banner">
+            <h2>الدراسات العليا</h2>
+            <p>برامج الماجستير والدكتوراه</p>
+        </section>
+
+        <section class="departments-section">
+            <div class="departments-grid">
+                <div class="department-card">
+                    <div class="card-content">
+                        <h3>برامج الماجستير</h3>
+                        <p>تعرف على برامج الماجستير المتاحة</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="card-content">
+                        <h3>برامج الدكتوراه</h3>
+                        <p>تعرف على برامج الدكتوراه المتاحة</p>
+                        <button class="read-more-btn">المزيد</button>
+                    </div>
+                </div>
+
+                <div class="department-card">
+                    <div class="card-content">
+                        <h3>التسجيل في الدراسات العليا</h3>
+                        <p>قدم طلبك للالتحاق ببرامج الدراسات العليا</p>
+                        <button class="read-more-btn" onclick="redirectToRegister()">التسجيل الآن</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/redirect-register.js"></script>
+    <script src="js/user-management.js"></script>
+    <script src="./assets/js/header-loader.js"></script>
+
+
+</body>
+
+</html>
